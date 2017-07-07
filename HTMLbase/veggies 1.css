@@ -1,0 +1,133 @@
+body {
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+#cover {
+  height: 900px;
+  position: relative;
+  top: -55px;
+  width: 100%;
+  background-image: url("https://fast-company-res.cloudinary.com/image/upload/fc/3032307-poster-p-1-the-internet-of-things-meets-hydroponics-how-to-grow-a-better-vegetable.jpg");
+  background-repeat:no-repeat;
+}
+
+.navigation {
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 10000;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  color: #14213D;
+  display: inline-block;
+  font-family: 'Abel', sans-serif;
+  font-size: 18px;
+  font-weight:100;;
+  margin: 0px 25px;
+  text-transform: uppercase;
+}
+
+#logo {
+  color: #FCA311;
+  font-family: 'Amatic SC', cursive;
+  font-size: 42px;
+  font-weight: bold;
+  padding: 0px 0px;
+  margin-left: -700px;
+}
+
+.cover-content {
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  top: 280px;
+  width: 70%;
+}
+
+h1 {
+  color: DarkGreen;
+  font-family: 'Amatic SC', cursive;
+  font-size: 72px;
+  line-height: 60px;
+  padding: 7px 20px;
+  text-align: center;
+}
+
+h2 {
+  color: Black;
+  font-family: 'Raleway', sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  text-align: center;
+}
+
+h3 {
+  color: #14213D;
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: #FCA311;
+  font-family: 'Abel', sans-serif;
+  font-size: 24px;
+  margin: 0px 0px 50px 0px;
+}
+
+p {
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  background-color: #14213D;
+  color: #FFF;
+  font-family: 'Amatic SC', cursive;
+  font-size: 26px;
+  padding: 14px;
+  border-radius: 100%;
+}
+
+.products {
+  background: #EEEFF1;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.product {
+  display: inline-block;
+  margin: 0px 2% 80px 2%;
+  text-align: center;
+  width: 45%;
+}
+
+.product img {
+  width:100%;
+}
+
+.blue {
+  color: #14213D !important;
+}
