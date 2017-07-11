@@ -7,5 +7,5 @@
 - clone repository
 - open terminal
 - run command 
- * node index.js
+ ``` node.js ```
 - Open browser and navigate to http://localhost:8080
