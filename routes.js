@@ -1,3 +1,4 @@
+const Path = require('path');
 
 let routes = [
   {
@@ -5,18 +6,19 @@ let routes = [
     method: 'GET',
     config: {
       handler: (req,reply)=>{
-        return reply.view('base.html');
+        return reply.view('home.html');
       }
     }
   },
   {
-    path: '/home',
+    path: '/register',
     method: 'GET',
     config:{
-      handler:(req,reply)=>{
-        return reply.view('login.html');
+      handler:{
+        view: 'register.html'
+        }
       }
     }
-  }
+
 ];
 module.exports = routes;

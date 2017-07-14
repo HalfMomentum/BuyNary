@@ -1,6 +1,6 @@
 const Hapi = require('hapi');
 const Vision = require('vision');
-const Inert = require('inert');
+//const Inert = require('inert');
 const Joi = require('joi');
 const Path = require('path');
 const routes = require('./routes.js');
@@ -12,34 +12,44 @@ server.connection({
   port: 8080
 });
 
-server.register(Inert,(err)=>{if(err)throw err;});
+//server.register(Inert,(err)=>{if(err)throw err;});
+
+server.register(require('inert'), (err)=> {
+
+	if (err) {
+
+		throw err;
+	}
+
+	server.route({
+		method : 'GET',
+    path : '/{path*}',
+    handler : {
+			directory : {
+				path : './public',
+				listing : true,
+				index : false
+			}
+		}
+	});
+
+});
+
 server.register(Vision,(err)=>{if(err)throw err;});
 
 server.views({
   engines: {
     html: require('handlebars')
   },
-  view:{
-    path: Path.join(__dirname,'templates'),
-    listing: true
-  },
+  layout: true,
+  layoutPath: Path.join(__dirname,'templates'),
+  path: Path.join(__dirname,'templates/views'),
   partialsPath: Path.join(__dirname,'templates/partial'),
   helpersPath: Path.join(__dirname,'templates/helpers')
 });
 
 
-server.route(/*[
-  {
-    path: '/',
-    method: 'GET',
-    config:{
-      handler: (req,reply)=>{
-        reply.view('base.html')
-      }
-    }
-
-  }
-]*/routes);
+server.route(routes);
 
 server.start((err)=>{
   if(err)
