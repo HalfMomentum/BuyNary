@@ -3,6 +3,7 @@ const Vision = require('vision');
 const Inert = require('inert');
 const Joi = require('joi');
 const Path = require('path');
+const routes = require('./routes.js');
 
 var server = new Hapi.Server();
 
@@ -18,24 +19,27 @@ server.views({
   engines: {
     html: require('handlebars')
   },
-  path: Path.join(__dirname,'templates'),
+  view:{
+    path: Path.join(__dirname,'templates'),
+    listing: true
+  },
   partialsPath: Path.join(__dirname,'templates/partial'),
   helpersPath: Path.join(__dirname,'templates/helpers')
 });
 
 
-server.route([
+server.route(/*[
   {
     path: '/',
     method: 'GET',
     config:{
-      handler: {
-        view: 'base.html'
+      handler: (req,reply)=>{
+        reply.view('base.html')
       }
     }
 
   }
-]);
+]*/routes);
 
 server.start((err)=>{
   if(err)
