@@ -1,3 +1,8 @@
+/*
+  routes are an undivisible part of a website.
+  This file serves as a plugin for server.js and defines all possible routes
+*/
+
 const Path = require('path');
 
 let routes = [
@@ -6,7 +11,7 @@ let routes = [
     method: 'GET',
     config: {
       handler: (req,reply)=>{
-        return reply.view('home.html');
+        return reply.view('home',{title:'Buynary|Home'});
       }
     }
   },
@@ -14,11 +19,11 @@ let routes = [
     path: '/register',
     method: 'GET',
     config:{
-      handler:{
-        view: 'register.html'
-        }
+      handler: (req,reply)=>{
+        return reply.view('register',{title:'Buynary|Register'});
       }
     }
+  }
 
 ];
 module.exports = routes;

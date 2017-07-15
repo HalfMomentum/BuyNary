@@ -1,10 +1,15 @@
+/*
+  including plugings so that we can use them
+*/
 const Hapi = require('hapi');
 const Vision = require('vision');
-//const Inert = require('inert');
 const Joi = require('joi');
 const Path = require('path');
 const routes = require('./routes.js');
 
+/*
+  creating hapijs server object
+*/
 var server = new Hapi.Server();
 
 server.connection({
@@ -12,31 +17,34 @@ server.connection({
   port: 8080
 });
 
-//server.register(Inert,(err)=>{if(err)throw err;});
-
+/*
+  registering Inert module to serve static files like CSS,JS,Images
+*/
 server.register(require('inert'), (err)=> {
-
-	if (err) {
-
-		throw err;
-	}
+	if (err) {throw err;}
 
 	server.route({
-		method : 'GET',
-    path : '/{path*}',
+		method : '*',
+    path : '/HTMLbase/{path?}',
     handler : {
 			directory : {
-				path : './public',
-				listing : true,
-				index : false
+        path : './HTMLbase/',
+				listing : true
 			}
 		}
 	});
 
 });
 
+/*
+  registering other plugings as well
+*/
 server.register(Vision,(err)=>{if(err)throw err;});
 
+/*
+  getting ready to serve views.
+  Makes html writing easy and reusable
+*/
 server.views({
   engines: {
     html: require('handlebars')
@@ -48,9 +56,15 @@ server.views({
   helpersPath: Path.join(__dirname,'templates/helpers')
 });
 
-
+/*
+  defining routes through user-defined pluging.
+  see './routes.js' for more information
+*/
 server.route(routes);
 
+/*
+  finally the server can start here
+*/
 server.start((err)=>{
   if(err)
     throw err;
