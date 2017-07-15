@@ -1,6 +1,5 @@
 const Hapi = require('hapi');
 const Vision = require('vision');
-//const Inert = require('inert');
 const Joi = require('joi');
 const Path = require('path');
 const routes = require('./routes.js');
