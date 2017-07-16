@@ -24,11 +24,11 @@ server.register(require('inert'), (err)=> {
 	if (err) {throw err;}
 
 	server.route({
-		method : '*',
-    path : '/HTMLbase/{path?}',
+		method : 'GET',
+    path : '/public/{path*}',
     handler : {
 			directory : {
-        path : './HTMLbase/',
+        path : Path.join(__dirname,'public'),
 				listing : true
 			}
 		}
