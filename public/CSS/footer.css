@@ -1,12 +1,6 @@
 .footul
 {
   font-size: 0.85rem;
-  margin-top: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
-  min-width: 200px;
-  max-width: 225px;
-  float: left;
   color: #fff;
   font-family: sans-serif;
 }

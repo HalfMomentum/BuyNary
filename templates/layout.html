@@ -7,18 +7,32 @@
   <link rel="stylesheet" type="text/css" href="../public/CSS/bootstrap.css">
 
   <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"-->
+  integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"-->
 
 </head>
 <body>
-<!--loads the navigation partial-->
-{{> nav}}
 
-<!--the content will get replaced by the view loaded-->
-{{{content}}}
+  <!--loads the navigation partial-->
+  {{> nav}}
+  <div class="container-fluid">
 
-<!--loads the footer partial-->
-{{> footer}}
+    <div class="row">
+
+      <div class="col-10 align-start">
+        <!--the content will get replaced by the view loaded-->
+        {{{content}}}
+      </div>
+      <div class="col align-end" style="z-index:1000">
+        <!--shopping cart, visible-->
+        {{> cart}}
+      </div>
+    </div>
+  </div>
+
+
+  <br class="my-2">
+  <!--loads the footer partial-->
+  {{> footer}}
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
