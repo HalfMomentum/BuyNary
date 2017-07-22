@@ -1,12 +1,13 @@
 
 .form-signin {
   max-width: 330px;
-  padding: 15px;
+  padding: 30px;
+  padding-top: 2cm;
   margin: 0 auto;
 }
 .form-signin .form-signin-heading,
 .form-signin .form-signin .form-control {
-  position: relative;
+  position: static;
   height: auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
