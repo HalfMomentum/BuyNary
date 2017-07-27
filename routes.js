@@ -23,6 +23,15 @@ let routes = [
         return reply.view('register',{title:'Buynary|Register'});
       }
     }
+  },
+  {
+    path: '/login',
+    method: 'GET',
+    config:{
+      handler: (req,reply)=>{
+        return reply.view('login',{title:'Buynary|Login'});
+      }
+    }
   }
 
 ];
