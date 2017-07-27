@@ -1,12 +1,12 @@
 <div class="collapse" id="collapseCart">
-  <div class="card card-fluid h-75 p-0" style="position:fixed;bottom:2.25rem;width:15%;">
+  <div class="card card-fluid h-75" style="position:fixed;bottom:0.25rem;right:1rem;width:15%">
     <div class="list-group h-100 w-100" style="overflow:auto">
 
       {{! cart-item}}
       <a href="#" class="list-group-item">
-        <div class="d-flex flex-nowrap w-100 justify-content-between mb-2">
+        <div class="d-flex flex-nowrap w-100 justify-content-between">
           <h6>ex-cart-item-name</h6>
-          <span class="badge badge-pill badge-danger align-self-center">X</span>
+          <i class="fa fa-times-circle text-danger"></i>
         </div>
         <div class="d-flex w-100 m-0 justify-content-between">
           <small>Qty</small>
@@ -19,81 +19,48 @@
         </div>
       </a>
 
-      <a href="#" class="list-group-item">
-        <div class="d-flex flex-nowrap w-100 justify-content-between mb-2">
-          <h6>very-large cart-item name example</h6>
-          <span class="badge badge-pill badge-danger align-self-center">X</span>
-        </div>
-        <div class="d-flex w-100 m-0 justify-content-between">
-          <small>Qty</small>
-          <select class="custom-select" name="qty-sel">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <b>120.00</b>
-        </div>
-      </a>
-
-      <a href="#" class="list-group-item">
-        <div class="d-flex flex-nowrap w-100 justify-content-around mb-2">
-          <h6>small name</h6>
-          <span class="badge badge-pill badge-danger align-self-center">X</span>
-        </div>
-        <div class="d-flex w-100 m-0 justify-content-between">
-          <small>Qty</small>
-          <select class="custom-select" name="qty-sel">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <b>120.00</b>
-        </div>
-      </a>
-
-      <a href="#" class="list-group-item">
-        <div class="d-flex flex-nowrap w-100 align-content-center mb-2">
-          <h6>ex-cart-item-name</h6>
-          <span class="badge badge-pill badge-danger align-self-center">X</span>
-        </div>
-        <div class="d-flex w-100 m-0 justify-content-between">
-          <small>Qty</small>
-          <select class="custom-select" name="qty-sel">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <b>120.00</b>
-        </div>
-      </a>
-
-      <a href="#" class="list-group-item">
-        <div class="d-flex flex-nowrap w-100 align-content-center mb-2">
-          <h6>ex-cart-item-name</h6>
-          <span class="badge badge-pill badge-danger align-self-center">X</span>
-        </div>
-        <div class="d-flex w-100 m-0 justify-content-between">
-          <small>Qty</small>
-          <select class="custom-select" name="qty-sel">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <b>120.00</b>
-        </div>
-      </a>
+{{!
+  template to add items to cart:
+    after queried from db.
+    Uncomment after db query applied successfully !
+}}
+{{!--
+  {{#each cart_item}}
+  <a href="#" class="list-group-item">
+    <div class="d-flex flex-nowrap w-100 justify-content-between">
+      <h6>{{this.name-of-item}}</h6>
+      <i class="fa fa-times-circle text-danger"></i>
+    </div>
+    <div class="d-flex w-100 m-0 justify-content-around">
+      <small>Qty</small>
+      <select class="custom-select" name="qty-sel">
+        <option selected value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <b>{{this.price*qty-sel}}</b>
+    </div>
+  </a>
+  {{/each}}
+--}}
 
     </div>
 
     {{! additional cart controls}}
-    <div class="d-flex w-100 justify-content-center flex-wrap">
-      <a href="#" class="btn btn-info">Checkout</a>
-      <a href="#" class="btn btn-danger">Clear</a>
+
+    <div class="d-flex w-50 justify-content-between flex-wrap">
+      <a href="#" class="btn btn-info btn-sm rounded" data-toggle="tooltip" title="Checkout">
+        <i class="fa fa-check-square-o fa-2x"></i>
+      </a>
+      <a href="#" class="btn btn-danger btn-sm rounded" data-toggle="tooltip" title="Clear Cart">
+        <i class="fa fa-trash-o fa-2x"></i>
+      </a>
     </div>
-    </div>
+  </div>
 </div>
 
-<button class="btn btn-primary btn-sm justify-content-center" type="button" data-toggle="collapse"
+<button class="btn btn-primary align-self-end border-0 rounded-circle" type="button" data-toggle="collapse"
   data-target="#collapseCart" aria-controls="collapseCart"
-  style="position:fixed;bottom:0;width:15%"><b>View MyCart</b>
+  style="position:fixed;bottom:0;right:1rem">
+  <i class="fa fa-shopping-cart fa-2x"></i>
 </button>
