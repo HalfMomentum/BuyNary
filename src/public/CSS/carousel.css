@@ -1,17 +1,18 @@
 
 .carousel {
-  margin-bottom: 3rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .carousel-caption {
   z-index: 10;
+  text-shadow: true;
   bottom: 3rem;
 }
 
 .carousel-item {
-  height: 28rem;
+  height: 25rem;
   background-color: #777;
 }
 

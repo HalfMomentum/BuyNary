@@ -1,0 +1,13 @@
+                                    Table "public.Items"
+  Column   |           Type           |                      Modifiers                       
+-----------+--------------------------+------------------------------------------------------
+ id        | integer                  | not null default nextval('"Items_id_seq"'::regclass)
+ name      | character varying(255)   | 
+ price     | numeric(8,2)             | 
+ desc      | text                     | 
+ cat       | character varying(255)   | 
+ createdAt | timestamp with time zone | not null default now()
+ updatedAt | timestamp with time zone | not null default now()
+Indexes:
+    "Items_pkey" PRIMARY KEY, btree (id)
+

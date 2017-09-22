@@ -1,7 +1,10 @@
 /*
-  routes are an undivisible part of a website.
-  This file serves as a plugin for server.js and defines all possible routes
+routes are an undivisible part of a website.
+This file serves as a plugin for server.js and defines all possible routes
 */
+const Path = require('path');
+const user = require('../src/controller/sampleController.js');
+
 let categories = [
   {
     'link' : 'Fruits',
@@ -34,7 +37,7 @@ let nav_data = {
     },
     {
       'link' : 'Log-in',
-      'icon' :  "fa-address-book",
+      'icon' :  "fa-key",
       'ref' :  '/login',
       'help' : 'Log-in'
     }
@@ -62,8 +65,6 @@ let nav_data = {
 }
 
 
-const Path = require('path');
-
 let routes = [
   {
     path: '/',
@@ -73,6 +74,7 @@ let routes = [
         view: {
           template : 'home',
           context : {
+            showCart: true,
             title : 'Buynary|Home',
             list : nav_data['guest'],
             category: categories
@@ -89,6 +91,7 @@ let routes = [
         view: {
           template : 'register',
           context : {
+            showCart: false,
             title : 'Buynary|New User',
             list : nav_data['guest'],
             category: categories
@@ -105,9 +108,10 @@ let routes = [
         view :{
           template : "login",
           context : {
+            showCart: false,
             title : 'Buynary|LoggedIn',
             category: categories,
-            list : nav_data['logged']
+            list : nav_data['guest']
           }
         }
       }
@@ -119,16 +123,23 @@ let routes = [
     config:{
       handler: {
         view :{
-          template : "login",
+          template : "home",
           context : {
-            title : 'Buynary|LoggedIn',
+            showCart: false,
+            title : 'Buynary|Home',
             list : nav_data['logged'],
             category: categories
           }
         }
       }
     }
+  },
+  {
+    path: '/{product}',
+    method: 'GET',
+    config:{
+      handler: user.getall.handler
+    }
   }
-
 ];
 module.exports = routes;
